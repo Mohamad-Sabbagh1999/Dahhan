@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KFZ-Gutachter & TÜV NORD Station - Ingenieurbüro S. Dahhan</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body  onload="showPage('home')">
+    <!-- Header mit Navigationsmenü -->
+    <header class="header">
+        <h1>Ingenieurbüro S. Dahhan</h1>
+        <button class="hamburger-menu" onclick="toggleMenu()">☰</button>
+        <nav id="nav-menu" class="nav-menu">
+            <ul>
+                <li><a href="#" onclick="showPage('home'); closeMenu()">Home</a></li>
+                <li><a href="#" onclick="showPage('services'); closeMenu()">Dienstleistungen</a></li>
+                <li><a href="#" onclick="showPage('impressum'); closeMenu()">Impressum</a></li>
+                <li class="call-button-container">
+                    <a href="tel:+4917649291835" onclick="closeMenu()">
+                        <img src="call-icon.png" alt="Anruf" class="call-button-img">
+                    </a>
+                </li>
+                <li class="whatsapp-button-container">
+                    <a href="https://wa.me/4917649291835" target="_blank" onclick="closeMenu()">
+                        <img src="whatsapp-icon.png" alt="WhatsApp" class="whatsapp-button-img">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Home-Seite -->
+    <div id="home" class="page visible content">
+        <section>
+            <div class="about">
+                <h2>Willkommen beim Ingenieurbüro Dahhan</h2>
+                <p>Ihr professioneller Partner für KFZ-Gutachten in Berlin-Spandau. Besuchen Sie uns für kompetente Fahrzeugbewertung und -überprüfung.</p>
+            </div>
+            <div class="centered-image">
+                <img src="1.jpg" alt="KFZ-Büro">
+            </div>
+
+
+            <div class="review-header1">
+                <h1>Kundenmeinung über Ingenieurbüro S. Dahhan</h1>
+                <img src="google-logo.png" alt="Google Logo" width="80">
+                <span class="rating">⭐⭐⭐⭐⭐ 5.0/5.00 – 40 Bewertungen von Google</span>
+            </div>
+            
+            <div class="review-wrapper">
+                <!-- Pfeiltasten neben den Bewertungen -->
+                <button class="arrow left" onclick="moveSlide(-1)">&#9664;</button>
+            
+                <div class="container">
+                    <!-- Bereich für Bewertungen -->
+                    <div class="reviews" id="reviewContainer">
+                        <!-- Die Bewertungen werden dynamisch hier geladen -->
+                    </div>
+                </div>
+            
+                <button class="arrow right" onclick="moveSlide(1)">&#9654;</button>
+            </div>
+            
+            <!-- Punktanzeige für Seiten -->
+            <div class="dots" id="paginationDots"></div>
+            
+            <script>
+                // Alle Bewertungen
+                const reviews = [
+                    {
+                        stars: "⭐⭐⭐⭐⭐",
+                        title: "Google Bewertung für TÜV NORD Prüfstelle Berlin Spandau",
+                        author: "von Vasilis Koil im Oktober 2024",
+                        content: "Heute ein sehr netter Mitarbeiter hat mir sehr geholfen, eine Entscheidung zu treffen, weil ich ein verbrauchtes Auto kaufen wollte. Nach gründlicher Untersuchung hat er geprüft, dass das nicht nur Unfall frei sondern auch alles richtig in Ordnung ist. Ich bin sehr dankbar und ich kann auf alle Fälle diese Prüfstelle wieder besuchen und empfehlen!"
+                    },
+                    {
+                        stars: "⭐⭐⭐⭐⭐",
+                        title: "Google Bewertung für TÜV NORD Prüfstelle Berlin Spandau",
+                        author: "von Oliver Kruse im Oktober 2024",
+                        content: "Online kurzfristig einen Termin gemacht für AU/HU. Kam pünktlich dran, wurde freundlich empfangen und dann wurde das Auto professionell geprüft. In der Zeit habe ich im Wartebereich auf der bequemen Couch gesessen und E-Mails gecheckt. Da mit dem Auto alles in Ordnung war, musste auch nichts Spezielles besprochen werden. Per Karte bezahlt und nach 25 Minuten alles erledigt. Tiptop. Werde ich zum nächsten Termin wieder hier buchen."
+                    },
+                    {
+                        stars: "⭐⭐⭐⭐⭐",
+                        title: "Google Bewertung für TÜV NORD Prüfstelle Berlin Spandau",
+                        author: "von Christine Mathes im Juli 2024",
+                        content: "Ich habe schnell einen Termin bekommen. Es wurde gründlich überprüft. Kann ich nur empfehlen."
+                    },
+                    {
+                        stars: "⭐⭐⭐⭐⭐",
+                        title: "Google Bewertung für TÜV NORD Prüfstelle Berlin Spandau",
+                        author: "von Ralf Kurzner im April 2024",
+                        content: "Super! Hatte online einen Termin gebucht. Vor Ort dann keine Wartezeit. Sehr nette Mitarbeiter. Danke."
+                    },
+                    {
+                        stars: "⭐⭐⭐⭐⭐",
+                        title: "Google Bewertung für TÜV NORD Prüfstelle Berlin Spandau",
+                        author: "von Michal im Juni 2024",
+                        content: "Ohne Termin, sehr nett, schnell und mit Ahnung. Danke!"
+                    },
+                    {
+                        stars: "⭐⭐⭐⭐⭐",
+                        title: "Google Bewertung für TÜV NORD Prüfstelle Berlin Spandau",
+                        author: "von Bodo Byszio im Februar 2024",
+                        content: "Wir sind super schnell rangekommen. Ohne Termin. Der Prüfer war sehr nett."
+                    },
+                    {
+                        stars: "⭐⭐⭐⭐⭐",
+                        title: "Google Bewertung für TÜV NORD Prüfstelle Berlin Spandau",
+                        author: "von Robert Staudinger im Januar 2024",
+                        content: "Ich empfehle diese Prüfstelle weiter. Es geht auch ohne Termin. Herr Erol ist sehr freundlich und arbeitet gewissenhaft."
+                    },
+                    {
+                        stars: "⭐⭐⭐⭐⭐",
+                        title: "Google Bewertung für TÜV NORD Prüfstelle Berlin Spandau",
+                        author: "von Paul Lunk im November 2023",
+                        content: "Super ohne Termin geht immer ,netter Prüfer und schaut richtig wie es sein muss"
+                    },
+                    {
+                        stars: "⭐⭐⭐⭐⭐",
+                        title: "Google Bewertung für KFZ Gutachter Bas",
+                        author: "von AboStil im November 2023",
+                        content: "Freundliche Leute schneller und unkomplizierter Termin immer weiter zu empfehlen"
+                    },
+                ];
+            
+                let currentPage = 0;
+                const reviewsPerPage = 3;
+            
+                // Funktion zum Laden der Bewertungen
+                function loadReviews() {
+                    const reviewContainer = document.getElementById("reviewContainer");
+                    reviewContainer.innerHTML = ""; // Vorherige Bewertungen löschen
+            
+                    const start = currentPage * reviewsPerPage;
+                    const end = start + reviewsPerPage;
+                    const currentReviews = reviews.slice(start, end);
+            
+                    currentReviews.forEach(review => {
+                        const reviewElement = document.createElement("div");
+                        reviewElement.className = "review";
+                        reviewElement.innerHTML = `
+                            <p class="stars">${review.stars}</p>
+                            <p><strong>${review.title}</strong></p>
+                            <p>${review.author}</p>
+                            <p>${review.content}</p>
+                        `;
+                        reviewContainer.appendChild(reviewElement);
+                    });
+            
+                    updateDots();
+                }
+            
+                // Funktion zur Aktualisierung der Punkteanzeige
+                function updateDots() {
+                    const paginationDots = document.getElementById("paginationDots");
+                    paginationDots.innerHTML = ""; // Vorherige Punkte löschen
+            
+                    const totalPages = Math.ceil(reviews.length / reviewsPerPage);
+                    for (let i = 0; i < totalPages; i++) {
+                        const dot = document.createElement("span");
+                        dot.className = "dot";
+                        if (i === currentPage) dot.classList.add("active"); // Aktuelle Seite hervorheben
+                        dot.onclick = () => showPage(i); // Klick auf Punkt zum Springen auf die entsprechende Seite
+                        paginationDots.appendChild(dot);
+                    }
+                }
+            
+                // Funktion zum Verschieben der Seite
+                function moveSlide(direction) {
+                    const totalPages = Math.ceil(reviews.length / reviewsPerPage);
+                    currentPage = (currentPage + direction + totalPages) % totalPages;
+                    loadReviews();
+                }
+            
+                // Funktion zum direkten Springen auf eine Seite
+                function showPage(pageIndex) {
+                    currentPage = pageIndex;
+                    loadReviews();
+                }
+            
+                // Initiales Laden der ersten Seite und Punkte
+                loadReviews();
+                </script>
+                
+            <div class="hours">
+                <h3>Öffnungszeiten</h3>
+                <p>Montag - Freitag: 08:00 - 18:00 Uhr<br>Samstag: 09:00 - 14:00 Uhr<br>Sonntag: Geschlossen</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Dienstleistungen-Seite -->
+    <div id="services" class="page content">
+        <section>
+            <h2>Dienstleistungen vor Ort</h2>
+            <div class="services-section">
+                <div class="service-card">
+                    <div class="icon">📝</div>
+                    <div class="description">
+                        <h3>Unfallgutachten</h3>
+                        <p>Zu meinem Leistungsspektrum gehört das Erstellen von Kostenvoranschlägen. Diese erstelle ich für Schäden, die über 750€ liegen. Bei Schäden über diesem Wert, empfehle ich Ihnen, ein Gutachten erstellen zu lassen.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="icon">💰</div>
+                    <div class="description">
+                        <h3>Wertgutachten</h3>
+                        <p>Gerne erstelle ich für Sie Wertgutachten für Ihren Oldtimer oder Youngtimer. Es ist wichtig, regelmäßige Wertgutachten erstellen zu lassen, um den Wert Ihres Fahrzeugs zu dokumentieren.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🔍</div>
+                    <div class="description">
+                        <h3>Gebrauchtwagencheck</h3>
+                        <p>Informieren Sie sich auf den folgenden Seiten über unsere Leistungen und unser Unternehmen. Bei Fragen stehe ich Ihnen jederzeit gerne zur Verfügung.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="icon">📊</div>
+                    <div class="description">
+                        <h3>Kostenvoranschlag</h3>
+                        <p>Auf Basis einer gründlichen Begutachtung erstelle ich Kostenvoranschläge für Fahrzeugschäden. So erhalten Sie eine klare Übersicht über die zu erwartenden Reparaturkosten.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="centered-image">
+            <img src="2.jpg" alt="Werkstatt Innenansicht">
+        </div>
+    </div>
+
+    <!-- Impressum-Seite -->
+    <div id="impressum" class="page content">
+        <section>
+            <h2>Impressum</h2><br>
+            <div class="box">
+                <div class="description">
+                    <h3>Verantwortlich für den Inhalt:</h3>
+                    <p>Ingenieurbüro S. Dahhan<br>Brunsbütteler Damm 106<br>13581 Berlin<br>Tel: +4917649291835<br>Email: info@ingenieurbuerodahhan.de</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="description">
+                    <h3>Geschäftsführer:</h3>
+                    <p>Samer Dahhan</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="description">
+                    <h3>Umsatzsteuer-Identifikationsnummer (USt-IdNr.):</h3>
+                    <p>DE123456789 gemäß §27a Umsatzsteuergesetz</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="description">
+                    <h3>Berufsbezeichnung:</h3>
+                    <p>KFZ-Gutachter<br>Verliehen in der Bundesrepublik Deutschland</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="description">
+                    <h3>Aufsichtsbehörde:</h3>
+                    <p>Handwerkskammer Berlin</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="description">
+                    <h3>Haftungsausschluss</h3>
+                    <p><strong>Haftung für Inhalte:</strong>  Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="description">
+                    <h3>Urheberrecht</h3>
+                    <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="description">
+                    <h3>Webseitenentwicklung</h3>
+                    <p>Diese Webseite wurde entwickelt von Mohamad Sabbagh<br>
+                        Kontakt für technische Anfragen: mohamadsabbagh1999@gmail.com</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <p id="footerText">&copy; 2024 Ingenieurbüro S. Dahhan. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <!-- JavaScript für Navigation -->
+    <script>
+        function showPage(pageId) {
+            // Entferne die Klasse "visible" von allen Seiten, um sicherzustellen, dass nur eine Seite sichtbar ist
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('visible'));
+            
+            // Füge die Klasse "visible" zur gewünschten Seite hinzu
+            document.getElementById(pageId).classList.add('visible');
+
+            // Aktualisiere den Text im Footer, um anzuzeigen, welche Seite aktiv ist
+            updateFooterText(pageId);
+        }
+
+        function updateFooterText(pageId) {
+            const footerText = document.getElementById("footerText");
+            switch (pageId) {
+                case 'home':
+                    footerText.innerHTML = "&copy; 2024 Ingenieurbüro S. Dahhan - Home. Alle Rechte vorbehalten.";
+                    break;
+                case 'services':
+                    footerText.innerHTML = "&copy; 2024 Ingenieurbüro S. Dahhan - Dienstleistungen. Alle Rechte vorbehalten.";
+                    break;
+                case 'impressum':
+                    footerText.innerHTML = "&copy; 2024 Ingenieurbüro S. Dahhan - Impressum. Alle Rechte vorbehalten.";
+                    break;
+                default:
+                    footerText.innerHTML = "&copy; 2024 Ingenieurbüro S. Dahhan. Alle Rechte vorbehalten.";
+            }
+        }
+        
+        function toggleMenu() {
+            const navMenu = document.getElementById("nav-menu");
+            if (navMenu.style.display === "flex") {
+                navMenu.style.display = "none";
+            } else {
+                navMenu.style.display = "flex";
+            }
+        }
+
+        function closeMenu() {
+            const navMenu = document.getElementById("nav-menu");
+            navMenu.style.display = "none";
+        }
+    </script>
+    
+</body>
+</html>
