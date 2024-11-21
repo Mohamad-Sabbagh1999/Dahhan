@@ -454,9 +454,11 @@ footer {
     .service-card .description h3 {
         font-size: 1.1em;
     }
+
     .header nav ul li {
         margin: 10px 0;
     }
+
     .arrow {
         padding: 8px;
     }
