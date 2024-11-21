@@ -293,16 +293,6 @@
 
     <!-- JavaScript für Navigation -->
     <script>
-        function showPage(pageId) {
-            // Entferne die Klasse "visible" von allen Seiten, um sicherzustellen, dass nur eine Seite sichtbar ist
-            document.querySelectorAll('.page').forEach(page => page.classList.remove('visible'));
-            
-            // Füge die Klasse "visible" zur gewünschten Seite hinzu
-            document.getElementById(pageId).classList.add('visible');
-
-            // Aktualisiere den Text im Footer, um anzuzeigen, welche Seite aktiv ist
-            updateFooterText(pageId);
-        }
 
         function updateFooterText(pageId) {
             const footerText = document.getElementById("footerText");
@@ -321,19 +311,41 @@
             }
         }
         
-        function toggleMenu() {
-            const navMenu = document.getElementById("nav-menu");
-            if (navMenu.style.display === "flex") {
-                navMenu.style.display = "none";
-            } else {
-                navMenu.style.display = "flex";
+        // Funktion zum Anzeigen der gewünschten Seite
+        function showPage(pageId) {
+            // Entferne die Klasse "visible" von allen Seiten, um sicherzustellen, dass nur eine Seite sichtbar ist
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('visible'));
+
+            // Füge die Klasse "visible" zur gewünschten Seite hinzu
+            document.getElementById(pageId).classList.add('visible');
+
+            // Aktualisiere den Text im Footer, um anzuzeigen, welche Seite aktiv ist
+            updateFooterText(pageId);
+
+            // Menü nach Seitenwechsel schließen, wenn auf mobile zugegriffen wird
+            if (window.innerWidth < 768) {
+                closeMenu();
             }
         }
 
+        // Funktion zum Öffnen oder Schließen des mobilen Menüs
+        function toggleMenu() {
+            const navMenu = document.getElementById("nav-menu");
+            if (navMenu.style.display === "block") {
+                navMenu.style.display = "none";
+            } else {
+                navMenu.style.display = "block";
+            }
+        }
+
+        // Funktion zum Schließen des mobilen Menüs
         function closeMenu() {
             const navMenu = document.getElementById("nav-menu");
-            navMenu.style.display = "none";
+            if (window.innerWidth < 768) {
+                navMenu.style.display = "none";
+            }
         }
+
     </script>
     
 </body>
