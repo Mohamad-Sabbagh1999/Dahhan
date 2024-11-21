@@ -322,7 +322,7 @@
             // Aktualisiere den Text im Footer, um anzuzeigen, welche Seite aktiv ist
             updateFooterText(pageId);
 
-            // Menü nach Seitenwechsel schließen, wenn auf mobile zugegriffen wird
+            // Menü nach Seitenwechsel schließen, wenn es auf mobile angezeigt wird
             if (window.innerWidth < 768) {
                 closeMenu();
             }
@@ -331,20 +331,24 @@
         // Funktion zum Öffnen oder Schließen des mobilen Menüs
         function toggleMenu() {
             const navMenu = document.getElementById("nav-menu");
-            if (navMenu.style.display === "block") {
-                navMenu.style.display = "none";
-            } else {
-                navMenu.style.display = "block";
-            }
+            navMenu.classList.toggle("open");
         }
 
         // Funktion zum Schließen des mobilen Menüs
         function closeMenu() {
             const navMenu = document.getElementById("nav-menu");
-            if (window.innerWidth < 768) {
-                navMenu.style.display = "none";
-            }
+            navMenu.classList.remove("open");
         }
+
+        // Event Listener hinzufügen, um sicherzustellen, dass das Menü sich beim Ändern der Fenstergröße korrekt verhält
+        window.addEventListener('resize', () => {
+            const navMenu = document.getElementById("nav-menu");
+            if (window.innerWidth >= 768) {
+                navMenu.classList.add("open");
+            } else {
+                navMenu.classList.remove("open");
+            }
+        });
 
     </script>
     

@@ -371,12 +371,34 @@ footer {
 
 /* Navigationsleiste auf Desktop standardmäßig sichtbar lassen */
 .nav-menu {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    background-color: transparent;
-    position: static;
-    width: auto;
+    display: none; /* Standardmäßig ausgeblendet */
+    flex-direction: column;
+    background-color: #333;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 20;
+    padding: 10px 0;
+}
+
+.nav-menu.open {
+    display: block;
+}
+
+/* Navigationsleiste auf Desktop sichtbar */
+@media (min-width: 768px) {
+    .nav-menu {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        width: auto;
+        background-color: transparent;
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
 }
 
 /* Responsive Stile für Mobilgeräte */
@@ -454,11 +476,9 @@ footer {
     .service-card .description h3 {
         font-size: 1.1em;
     }
-
     .header nav ul li {
         margin: 10px 0;
     }
-
     .arrow {
         padding: 8px;
     }
