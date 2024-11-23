@@ -364,22 +364,13 @@ footer {
     display: block;
 }
 
-/* Hamburger-Menü-Schaltfläche */
-.hamburger-menu {
-    display: none;
-}
-
 /* Navigationsleiste auf Desktop standardmäßig sichtbar lassen */
 .nav-menu {
-    display: none; /* Standardmäßig ausgeblendet */
-    flex-direction: column;
-    background-color: #333;
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    z-index: 20;
-    padding: 10px 0;
+    display: flex; /* Immer sichtbar */
+    flex-direction: row; /* Standard: horizontal */
+    background-color: transparent;
+    position: static; /* Keine absolute Positionierung */
+    width: auto; /* Anpassung an den Inhalt */
 }
 
 .nav-menu.open {
@@ -400,33 +391,48 @@ footer {
         display: none;
     }
 }
+/* Menü standardmäßig sichtbar */
+.nav-menu {
+    display: flex; /* Immer sichtbar */
+    flex-direction: row; /* Standard: horizontal */
+    background-color: transparent;
+    position: static; /* Keine absolute Positionierung */
+    width: auto; /* Anpassung an den Inhalt */
+}
 
-/* Responsive Stile für Mobilgeräte */
+/* Responsive Anpassung: Menü bleibt sichtbar */
 @media (max-width: 768px) {
     .nav-menu {
-        display: none;
-        flex-direction: column;
-        background-color: #333;
-        width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        z-index: 20;
-        padding: 10px 0;
+        display: flex; /* Auch auf Mobilgeräten sichtbar */
+        flex-direction: column; /* Vertikale Anordnung für kleinere Bildschirme */
+        background-color: #333; /* Hintergrundfarbe für Mobilgeräte */
+        width: 100%; /* Volle Breite für Mobilgeräte */
     }
 
     .nav-menu ul {
-        flex-direction: column;
-        align-items: flex-start;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        width: 100%;
     }
 
     .nav-menu ul li {
-        margin: 10px 20px;
+        width: 100%;
+        text-align: center; /* Zentriere die Links */
+        margin: 5px 0; /* Abstand zwischen den Links */
     }
 
     .nav-menu ul li a {
-        font-size: 1.2em;
+        color: white;
+        text-decoration: none;
         padding: 10px 0;
+        display: block;
+        font-size: 1.2em;
+    }
+
+    .nav-menu ul li a:hover {
+        background-color: #444;
+        color: #fff;
     }
     
     .call-button-container,
@@ -438,10 +444,6 @@ footer {
     .whatsapp-button-img {
         width: 40px;
         height: 40px;
-    }
-
-    .hamburger-menu {
-        display: block;
     }
 
     .review-header1 {
@@ -482,9 +484,4 @@ footer {
     .arrow {
         padding: 8px;
     }
-}
-
-/* Sicherstellen, dass das Menü auf Desktop sichtbar bleibt, wenn zwischen den Seiten gewechselt wird */
-#nav-menu {
-    display: flex !important;
 }
