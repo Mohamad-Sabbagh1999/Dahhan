@@ -386,6 +386,21 @@ footer {
     display: block;
 }
 
+/* Navigationsleiste auf Desktop sichtbar */
+@media (min-width: 768px) {
+    .nav-menu {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        width: auto;
+        background-color: transparent;
+    }
+
+    .hamburger-menu {
+        display: none;
+    }
+}
+
 /* Responsive Stile für Mobilgeräte */
 @media (max-width: 768px) {
     .nav-menu {
@@ -398,11 +413,6 @@ footer {
         left: 0;
         z-index: 20;
         padding: 10px 0;
-    }
-
-    .nav-menu.open {
-        display: flex;
-        flex-direction: column;
     }
 
     .nav-menu ul {

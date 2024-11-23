@@ -334,29 +334,36 @@
             navMenu.classList.toggle("open");
         }
 
-        // Funktion zum Schließen des mobilen Menüs
-        function closeMenu() {
-            const navMenu = document.getElementById("nav-menu");
-            if (window.innerWidth < 768) { // Schließe nur auf mobilen Geräten
+        document.addEventListener("DOMContentLoaded", () => {
+            const navMenu = document.getElementById("nav-menu"); // Hamburger-Menü
+            const menuLinks = document.querySelectorAll("#nav-menu a"); // Alle Links im Menü
+            const hamburgerMenu = document.querySelector(".hamburger-menu"); // Hamburger-Icon
+
+            // Schließt das Menü
+            function closeMenu() {
                 navMenu.classList.remove("open");
             }
-        }
 
-        // Event Listener hinzufügen, um sicherzustellen, dass das Menü sich beim Ändern der Fenstergröße korrekt verhält
-        document.addEventListener("DOMContentLoaded", () => {
-            const menuLinks = document.querySelectorAll("#nav-menu a"); // Alle Links im Menü
-            const navMenu = document.getElementById("nav-menu"); // Das Hamburger-Menü
+            // Öffnet oder schließt das Menü bei Klick auf das Hamburger-Icon
+            hamburgerMenu.addEventListener("click", () => {
+                navMenu.classList.toggle("open");
+            });
 
+            // Menü schließen, wenn ein Link angeklickt wird
             menuLinks.forEach(link => {
                 link.addEventListener("click", () => {
-                    if (navMenu.classList.contains("open")) {
-                        navMenu.classList.remove("open"); // Menü schließen
-                    }
+                    closeMenu(); // Schließe das Menü
                 });
             });
+
+            // Menü schließen, wenn außerhalb des Menüs geklickt wird
+            document.addEventListener("click", (e) => {
+                if (!navMenu.contains(e.target) && !hamburgerMenu.contains(e.target)) {
+                    closeMenu();
+                }
+            });
         });
-
-
+        
     </script>
     
 </body>
