@@ -344,13 +344,14 @@
 
         // Event Listener hinzufügen, um sicherzustellen, dass das Menü sich beim Ändern der Fenstergröße korrekt verhält
         document.addEventListener("DOMContentLoaded", () => {
-            // Finde alle Links in der Navigation
-            const menuLinks = document.querySelectorAll("#nav-menu a");
-            
-            // Füge jedem Link einen Klick-Event-Listener hinzu
+            const menuLinks = document.querySelectorAll("#nav-menu a"); // Alle Links im Menü
+            const navMenu = document.getElementById("nav-menu"); // Das Hamburger-Menü
+
             menuLinks.forEach(link => {
                 link.addEventListener("click", () => {
-                    closeMenu(); // Schließe das Menü nach Klick
+                    if (navMenu.classList.contains("open")) {
+                        navMenu.classList.remove("open"); // Menü schließen
+                    }
                 });
             });
         });
