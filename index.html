@@ -10,7 +10,6 @@
     <!-- Header mit Navigationsmenü -->
     <header class="header">
         <h1>Ingenieurbüro S. Dahhan</h1>
-        <button class="hamburger-menu" onclick="toggleMenu()">☰</button>
         <nav id="nav-menu" class="nav-menu">
             <ul>
                 <li><a href="#" onclick="showPage('home'); closeMenu()">Home</a></li>
@@ -293,7 +292,6 @@
 
     <!-- JavaScript für Navigation -->
     <script>
-
         function updateFooterText(pageId) {
             const footerText = document.getElementById("footerText");
             switch (pageId) {
@@ -310,24 +308,17 @@
                     footerText.innerHTML = "&copy; 2024 Ingenieurbüro S. Dahhan. Alle Rechte vorbehalten.";
             }
         }
-        
-        // Funktion zum Anzeigen der gewünschten Seite
+
         function showPage(pageId) {
-            // Entferne die Klasse "visible" von allen Seiten, um sicherzustellen, dass nur eine Seite sichtbar ist
+            // Entferne "visible" von allen Seiten
             document.querySelectorAll('.page').forEach(page => page.classList.remove('visible'));
 
-            // Füge die Klasse "visible" zur gewünschten Seite hinzu
+            // Zeige die gewünschte Seite an
             document.getElementById(pageId).classList.add('visible');
 
-            // Aktualisiere den Text im Footer, um anzuzeigen, welche Seite aktiv ist
+            // Aktualisiere den Footer-Text
             updateFooterText(pageId);
-
-            // Menü nach Seitenwechsel schließen, wenn es auf mobile angezeigt wird
-            if (window.innerWidth < 768) {
-                closeMenu();
-            }
         }
-
     </script>
     
 </body>

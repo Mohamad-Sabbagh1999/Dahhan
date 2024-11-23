@@ -37,7 +37,15 @@ body, html {
 }
 
 /* Navigationsstile */
-.header nav ul {
+.nav-menu {
+    display: flex;
+    flex-direction: row; /* Horizontal auf Desktop */
+    background-color: transparent;
+    position: static;
+    width: auto;
+}
+
+.nav-menu ul {
     list-style-type: none;
     display: flex;
     align-items: center;
@@ -45,49 +53,67 @@ body, html {
     padding: 0;
 }
 
-.header nav ul li {
+.nav-menu ul li {
     margin: 0 15px;
 }
 
-.header nav ul li a {
+.nav-menu ul li a {
     color: white;
     text-decoration: none;
     font-size: 1em;
 }
 
-.header nav ul li a:hover {
+.nav-menu ul li a:hover {
     text-decoration: underline;
 }
 
-/* Stile für den Call-Button */
-.call-button-container {
+/* Call- und WhatsApp-Button-Stile */
+.call-button-container, .whatsapp-button-container {
     margin-left: 20px;
 }
 
-.call-button-img {
+.call-button-img, .whatsapp-button-img {
     width: 40px;
     height: 40px;
     cursor: pointer;
     transition: transform 0.3s;
 }
 
-.call-button-img:hover {
+.call-button-img:hover, .whatsapp-button-img:hover {
     transform: scale(1.1);
 }
 
-.whatsapp-button-container {
-    margin-left: 10px;
-}
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .nav-menu {
+        flex-direction: column; /* Vertikal auf Mobilgeräten */
+        background-color: #333;
+        width: 100%;
+    }
 
-.whatsapp-button-img {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
+    .nav-menu ul {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        flex-direction: column; /* Links untereinander */
+        align-items: center;
+    }
 
-.whatsapp-button-img:hover {
-    transform: scale(1.1);
+    .nav-menu ul li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu ul li a {
+        padding: 10px 0;
+        display: block;
+        font-size: 1.2em;
+    }
+
+    .nav-menu ul li a:hover {
+        background-color: #444;
+    }
 }
 
 /* Kundenmeinung Header */
@@ -108,6 +134,7 @@ body, html {
     flex-direction: column;
 }
 
+/* Kundenbewertungen */
 .review-wrapper {
     display: flex;
     align-items: center;
@@ -122,7 +149,6 @@ body, html {
     width: 80%;
     max-width: 800px;
     overflow: hidden;
-    align-items: center;
 }
 
 .reviews {
@@ -198,6 +224,7 @@ body, html {
     padding: 15px 5%;
 }
 
+/* Zentrierte Bilder */
 .centered-image {
     display: flex;
     justify-content: center;
@@ -226,7 +253,7 @@ body, html {
     font-size: 1.1em;
 }
 
-/* Stile für Seiten */
+/* Seitenstile */
 .about, .services, .impressum {
     margin: 20px 0;
 }
@@ -236,14 +263,6 @@ body, html {
     margin-bottom: 20px;
     text-align: center;
     color: #1a1a4b;
-}
-
-.services p, .about p, .contact p, .impressum p {
-    max-width: 600px;
-    margin: 0 auto;
-    font-size: 1.1em;
-    line-height: 1.6;
-    text-align: center;
 }
 
 /* Dienstleistungskarten */
@@ -265,8 +284,6 @@ body, html {
     display: flex;
     align-items: center;
     background-color: #ffffff;
-    width: 100%;
-    min-width: 300px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -291,16 +308,15 @@ body, html {
     justify-content: center;
     border-radius: 8px;
     margin-right: 15px;
-    margin-left: 15px;
 }
 
 .service-card .description {
     padding: 10px;
     text-align: center;
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .service-card .description h3 {
@@ -315,34 +331,21 @@ body, html {
     font-size: 1em;
     color: #1a1a4b;
     line-height: 1.6;
-    text-align: center;
 }
 
-/* Boxen für Impressum */
+/* Impressum-Boxen */
 .box {
     background-color: #ffffff;
     border-radius: 8px;
-    overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     padding: 20px;
     margin-bottom: 20px;
-}
-
-.box .description {
-    flex: 1;
 }
 
 .box .description h3 {
     margin: 0 0 10px;
     font-size: 1.3em;
     color: #1a1a4b;
-}
-
-.box .description p {
-    margin: 0;
-    font-size: 1em;
-    color: #555;
-    line-height: 1.6;
 }
 
 /* Footer */
@@ -362,126 +365,4 @@ footer {
 /* Sichtbare Seite */
 .visible {
     display: block;
-}
-
-/* Navigationsleiste auf Desktop standardmäßig sichtbar lassen */
-.nav-menu {
-    display: flex; /* Immer sichtbar */
-    flex-direction: row; /* Standard: horizontal */
-    background-color: transparent;
-    position: static; /* Keine absolute Positionierung */
-    width: auto; /* Anpassung an den Inhalt */
-}
-
-.nav-menu.open {
-    display: block;
-}
-
-/* Navigationsleiste auf Desktop sichtbar */
-@media (min-width: 768px) {
-    .nav-menu {
-        display: flex;
-        position: static;
-        flex-direction: row;
-        width: auto;
-        background-color: transparent;
-    }
-
-    .hamburger-menu {
-        display: none;
-    }
-}
-/* Menü standardmäßig sichtbar */
-.nav-menu {
-    display: flex; /* Immer sichtbar */
-    flex-direction: row; /* Standard: horizontal */
-    background-color: transparent;
-    position: static; /* Keine absolute Positionierung */
-    width: auto; /* Anpassung an den Inhalt */
-}
-
-/* Responsive Anpassung: Menü bleibt sichtbar */
-@media (max-width: 768px) {
-    .nav-menu {
-        display: flex; /* Auch auf Mobilgeräten sichtbar */
-        flex-direction: column; /* Vertikale Anordnung für kleinere Bildschirme */
-        background-color: #333; /* Hintergrundfarbe für Mobilgeräte */
-        width: 100%; /* Volle Breite für Mobilgeräte */
-    }
-
-    .nav-menu ul {
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-        width: 100%;
-    }
-
-    .nav-menu ul li {
-        width: 100%;
-        text-align: center; /* Zentriere die Links */
-        margin: 5px 0; /* Abstand zwischen den Links */
-    }
-
-    .nav-menu ul li a {
-        color: white;
-        text-decoration: none;
-        padding: 10px 0;
-        display: block;
-        font-size: 1.2em;
-    }
-
-    .nav-menu ul li a:hover {
-        background-color: #444;
-        color: #fff;
-    }
-    
-    .call-button-container,
-    .whatsapp-button-container {
-        margin-left: 20px;
-    }
-
-    .call-button-img,
-    .whatsapp-button-img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .review-header1 {
-        flex-direction: column;
-        font-size: 1.2em;
-        padding: 15px;
-        gap: 5px;
-    }   
-
-    .review-header1 img {
-        width: 60px;
-    }
-
-    .review-header1 .rating {
-        font-size: 1em;
-    }
-
-    .reviews {
-        grid-template-columns: 1fr;
-    }
-
-    .service-card {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .service-card .icon {
-        font-size: 2em;
-        padding: 10px;
-    }
-
-    .service-card .description h3 {
-        font-size: 1.1em;
-    }
-    .header nav ul li {
-        margin: 10px 0;
-    }
-    .arrow {
-        padding: 8px;
-    }
 }
