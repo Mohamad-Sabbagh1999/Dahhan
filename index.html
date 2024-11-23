@@ -337,18 +337,24 @@
         // Funktion zum Schließen des mobilen Menüs
         function closeMenu() {
             const navMenu = document.getElementById("nav-menu");
-            navMenu.classList.remove("open");
+            if (window.innerWidth < 768) { // Schließe nur auf mobilen Geräten
+                navMenu.classList.remove("open");
+            }
         }
 
         // Event Listener hinzufügen, um sicherzustellen, dass das Menü sich beim Ändern der Fenstergröße korrekt verhält
-        window.addEventListener('resize', () => {
-            const navMenu = document.getElementById("nav-menu");
-            if (window.innerWidth >= 768) {
-                navMenu.classList.add("open");
-            } else {
-                navMenu.classList.remove("open");
-            }
+        document.addEventListener("DOMContentLoaded", () => {
+            // Finde alle Links in der Navigation
+            const menuLinks = document.querySelectorAll("#nav-menu a");
+            
+            // Füge jedem Link einen Klick-Event-Listener hinzu
+            menuLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    closeMenu(); // Schließe das Menü nach Klick
+                });
+            });
         });
+
 
     </script>
     
