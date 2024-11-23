@@ -83,38 +83,68 @@ body, html {
     transform: scale(1.1);
 }
 
-/* Responsive Navigation */
 @media (max-width: 768px) {
+    /* Navigation: Vertikale Ausrichtung */
     .nav-menu {
-        flex-direction: column; /* Vertikal auf Mobilgeräten */
-        background-color: #333;
-        width: 100%;
+        flex-direction: column; /* Menü vertikal ausrichten */
+        align-items: center; /* Zentriere die Links */
+        background-color: #333; /* Dunkler Hintergrund für Mobilgeräte */
+        width: 100%; /* Volle Breite des Bildschirms */
+        padding: 10px 0;
+        gap: 10px; /* Abstand zwischen den Links */
     }
 
     .nav-menu ul {
+        flex-direction: column; /* Links untereinander anordnen */
         width: 100%;
         padding: 0;
         margin: 0;
-        flex-direction: column; /* Links untereinander */
-        align-items: center;
     }
 
     .nav-menu ul li {
-        margin: 10px 0;
-        width: 100%;
-        text-align: center;
+        width: 100%; /* Links nehmen die volle Breite ein */
+        text-align: center; /* Zentriere die Links */
+        margin: 5px 0; /* Abstand zwischen den Links */
     }
 
     .nav-menu ul li a {
-        padding: 10px 0;
         display: block;
-        font-size: 1.2em;
+        font-size: 1.2em; /* Größere Schrift für bessere Lesbarkeit */
+        padding: 10px 0; /* Erhöhte Klickfläche */
+        color: white;
+        text-decoration: none;
     }
 
     .nav-menu ul li a:hover {
-        background-color: #444;
+        background-color: #444; /* Hover-Effekt für Links */
+        color: #fff;
+    }
+
+    /* Call- und WhatsApp-Buttons: Zentrierte Ausrichtung */
+    .call-button-container, .whatsapp-button-container {
+        display: flex;
+        justify-content: center; /* Zentriere die Buttons */
+        margin: 10px 0; /* Abstand über und unter den Buttons */
+    }
+
+    .call-button-img, .whatsapp-button-img {
+        width: 40px; /* Einheitliche Größe der Buttons */
+        height: 40px;
+        margin: 0 5px; /* Abstand zwischen den Buttons */
+    }
+
+    /* Header-Ausrichtung: Zentriere den Inhalt */
+    .header {
+        flex-direction: column; /* Inhalte untereinander anordnen */
+        text-align: center;
+    }
+
+    .header h1 {
+        margin-bottom: 15px;
+        font-size: 1.5em; /* Größere Schriftgröße für Mobilgeräte */
     }
 }
+
 
 /* Kundenmeinung Header */
 .review-header1 {
