@@ -31,7 +31,6 @@ body, html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .header-title {
@@ -42,6 +41,17 @@ body, html {
 .header-contact-buttons {
     display: flex;
     gap: 10px;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.contact-icon:hover {
+    transform: scale(1.1);
 }
 
 /* Navigationsleiste */
@@ -67,18 +77,6 @@ body, html {
 
 .nav-item a:hover {
     text-decoration: underline;
-}
-
-/* Buttons */
-.contact-icon {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.contact-icon:hover {
-    transform: scale(1.1);
 }
 
 /* Mobilgeräte-Stile */
@@ -108,6 +106,13 @@ body, html {
     .nav-item {
         flex: 1;
         text-align: center;
+    }
+
+    .nav-item a {
+        font-size: 1em;
+        color: white;
+        text-decoration: none;
+        padding: 10px;
     }
 }
 
