@@ -31,6 +31,12 @@ body, html {
     flex-wrap: wrap;
 }
 
+/* Buttons im Header */
+.header-buttons {
+    display: flex; /* Buttons nebeneinander */
+    gap: 10px; /* Abstand zwischen den Buttons */
+}
+
 .header h1 {
     font-size: 1.5em;
     margin: 0;
@@ -42,15 +48,18 @@ body, html {
     flex-direction: row; /* Horizontal auf Desktop */
     background-color: transparent;
     position: static;
-    width: auto;
+    width: 100%;
+    margin-top: 10px;
 }
 
 .nav-menu ul {
     list-style-type: none;
     display: flex;
     align-items: center;
+    justify-content: center;
     margin: 0;
     padding: 0;
+    gap: 15px; 
 }
 
 .nav-menu ul li {
@@ -93,6 +102,10 @@ body, html {
         padding: 10px 15px; /* Weniger Polsterung */
     }
 
+    .header-buttons {
+        flex-shrink: 0; /* Buttons bleiben rechts */
+    }
+
     .header h1 {
         font-size: 1em; /* Kleinere Schriftgröße für Mobilgeräte */
         margin: 0; /* Kein zusätzlicher Abstand */
@@ -111,6 +124,8 @@ body, html {
     .nav-menu ul li {
         margin: 0; /* Kein zusätzlicher Abstand */
         flex: 1; /* Gleichmäßige Verteilung der Links */
+        gap: 10px;
+        flex-direction: row;
         text-align: center; /* Zentriere die Links */
     }
 
@@ -135,7 +150,7 @@ body, html {
     /* Flex-Container für Buttons */
     .nav-menu {
         flex-wrap: wrap; /* Erlaubt Umbruch, falls nötig */
-        gap: 20px;
+        gap: 10px;
     }
 
 }
