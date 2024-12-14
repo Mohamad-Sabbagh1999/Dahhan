@@ -18,73 +18,30 @@ body, html {
 .header {
     background-color: #333;
     color: white;
-    padding: 20px;
-    text-align: center;
+    padding: 10px 15px;
     position: sticky;
     top: 0;
-    z-index: 10;
-    box-sizing: border-box;
+    z-index: 1000;
     width: 100%;
+}
+
+/* Header erste Zeile (Titel und Buttons) */
+.header-row {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-/* Buttons im Header */
-.header-buttons {
-    display: flex; /* Buttons nebeneinander */
-    gap: 10px; /* Abstand zwischen den Buttons */
-}
-
-/* Navigation und Buttons rechts */
-.header-right {
-    display: flex; /* Links und Buttons nebeneinander */
+    justify-content: space-between; /* Titel links, Buttons rechts */
     align-items: center; /* Vertikale Zentrierung */
-    gap: 20px; /* Abstand zwischen Navigation und Buttons */
 }
 
+/* Titel */
 .header h1 {
     font-size: 1.5em;
     margin: 0;
-    flex-shrink: 0;
 }
 
-/* Navigationsstile */
-.nav-menu {
+/* Buttons rechts */
+.header-buttons {
     display: flex;
-    flex-direction: row; /* Horizontal auf Desktop */
-    background-color: transparent;
-    position: static;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.nav-menu ul {
-    display: flex; /* Navigation horizontal */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 15px; /* Abstand zwischen den Links */
-}
-
-.nav-menu ul li {
-    margin: 0;
-}
-
-.nav-menu ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1em;
-}
-
-.nav-menu ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Call- und WhatsApp-Button-Stile */
-.call-button-container, .whatsapp-button-container {
-    margin-left: 20px;
+    gap: 10px; /* Abstand zwischen Buttons */
 }
 
 .call-button-img, .whatsapp-button-img {
@@ -98,68 +55,51 @@ body, html {
     transform: scale(1.1);
 }
 
-/* Navigation und Buttons nebeneinander auf Mobilgeräten */
-@media (max-width: 768px) {
-    .header {
-        display: flex; /* Flexbox aktivieren */
-        flex-direction: row; /* Elemente horizontal ausrichten */
-        align-items: center; /* Vertikale Zentrierung */
-        justify-content: space-between; /* Titel links, Buttons rechts */
-        padding: 10px 15px; /* Weniger Polsterung */
-    }
+/* Navigation (zweite Zeile) */
+.nav-menu {
+    margin-top: 10px;
+    text-align: center;
+}
 
-    .header-buttons {
-        flex-shrink: 0; /* Buttons bleiben rechts */
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 15px; /* Abstand zwischen Links */
+    justify-content: center; /* Zentriere Links */
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    font-size: 1em;
+    color: white;
+}
+
+.nav-menu ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Anpassungen für Mobilgeräte */
+@media (max-width: 768px) {
+    .header-row {
+        flex-wrap: nowrap; /* Alles bleibt in einer Zeile */
     }
 
     .header h1 {
-        font-size: 1em; /* Kleinere Schriftgröße für Mobilgeräte */
-        margin: 0; /* Kein zusätzlicher Abstand */
+        font-size: 1em; /* Kleinere Schriftgröße */
     }
 
-    /* Navigation: Links nebeneinander */
-    .nav-menu ul {
-        display: flex; /* Flexbox aktivieren */
-        justify-content: space-evenly; /* Gleichmäßiger Abstand */
-        align-items: center; /* Vertikal zentrieren */
-        padding: 0;
-        margin: 0;
-        gap: 15px;
-    }
-
-    .nav-menu ul li {
-        margin: 0; /* Kein zusätzlicher Abstand */
-        flex: 1; /* Gleichmäßige Verteilung der Links */
-        gap: 10px;
-        flex-direction: row;
-        text-align: center; /* Zentriere die Links */
-    }
-
-    .nav-menu ul li a {
-        text-decoration: none;
-        font-size: 1em;
-        color: white; /* Navigation bleibt sichtbar */
-        padding: 10px; /* Klickfläche vergrößern */
-    }
-
-    /* Call- und WhatsApp-Buttons */
-    .call-button-container, .whatsapp-button-container {
-        display: inline-block; /* Buttons nebeneinander */
-        margin-left: 10px; /* Abstand zwischen den Buttons */
+    .nav-menu {
+        margin-top: 15px; /* Abstand zur ersten Zeile */
     }
 
     .call-button-img, .whatsapp-button-img {
-        width: 30px; /* Kleinere Icon-Größe */
-        height: 30px;
+        width: 25px; /* Kleinere Icons */
+        height: 25px;
     }
-
-    /* Flex-Container für Buttons */
-    .nav-menu {
-        flex-wrap: wrap; /* Erlaubt Umbruch, falls nötig */
-        gap: 10px;
-    }
-
 }
+
 
 /* Kundenmeinung Header */
 .review-header1 {

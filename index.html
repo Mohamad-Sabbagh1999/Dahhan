@@ -9,15 +9,8 @@
 <body  onload="showPage('home')">
     <!-- Header mit Navigationsmenü -->
     <header class="header">
-        <h1>Ingenieurbüro S. Dahhan</h1>
-        <div class="header-right">
-            <nav id="nav-menu" class="nav-menu">
-                <ul>
-                    <li><a href="#" onclick="showPage('home')">Home</a></li>
-                    <li><a href="#" onclick="showPage('services')">Dienstleistungen</a></li>
-                    <li><a href="#" onclick="showPage('impressum')">Impressum</a></li>
-                </ul>
-            </nav>
+        <div class="header-row">
+            <h1>Ingenieurbüro S. Dahhan</h1>
             <div class="header-buttons">
                 <div class="call-button-container">
                     <a href="tel:+4917649291835">
@@ -31,9 +24,15 @@
                 </div>
             </div>
         </div>
+        <nav id="nav-menu" class="nav-menu">
+            <ul>
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('services')">Dienstleistungen</a></li>
+                <li><a href="#" onclick="showPage('impressum')">Impressum</a></li>
+            </ul>
+        </nav>
     </header>
-    
-    
+     
     <!-- Home-Seite -->
     <div id="home" class="page visible content">
         <section>
