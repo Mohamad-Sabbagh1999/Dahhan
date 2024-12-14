@@ -37,9 +37,17 @@ body, html {
     gap: 10px; /* Abstand zwischen den Buttons */
 }
 
+/* Navigation und Buttons rechts */
+.header-right {
+    display: flex; /* Links und Buttons nebeneinander */
+    align-items: center; /* Vertikale Zentrierung */
+    gap: 20px; /* Abstand zwischen Navigation und Buttons */
+}
+
 .header h1 {
     font-size: 1.5em;
     margin: 0;
+    flex-shrink: 0;
 }
 
 /* Navigationsstile */
@@ -53,17 +61,15 @@ body, html {
 }
 
 .nav-menu ul {
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
+    display: flex; /* Navigation horizontal */
+    list-style: none;
     padding: 0;
-    gap: 15px; 
+    margin: 0;
+    gap: 15px; /* Abstand zwischen den Links */
 }
 
 .nav-menu ul li {
-    margin: 0 15px;
+    margin: 0;
 }
 
 .nav-menu ul li a {
@@ -82,8 +88,8 @@ body, html {
 }
 
 .call-button-img, .whatsapp-button-img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
     transition: transform 0.3s;
 }
