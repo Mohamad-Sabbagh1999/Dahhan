@@ -1,245 +1,360 @@
 /* Allgemeine Stile */
-/* Standard-Reset für alle Elemente */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Globaler Stil für den gesamten Inhalt */
 body, html {
     font-family: Arial, sans-serif;
     min-height: 100vh;
-    color: #333; /* Standard-Textfarbe */
-    background-color: #f9f9f9; /* Seitenhintergrund */
+    color: #333;
+    background-color: #f9f9f9;
     display: flex;
-    flex-direction: column; /* Vertikales Layout */
+    flex-direction: column;
 }
 
-/* --- HEADER-BEREICH --- */
-
-/* Hauptheader der Seite */
-.site-header {
-    background-color: #333; /* Dunkler Hintergrund */
-    color: white; /* Helle Textfarbe */
-    padding: 10px 15px; /* Abstand innen */
-    position: sticky; /* Fixierung oben beim Scrollen */
-    top: 0; /* Oben fixiert */
-    z-index: 1000; /* Immer im Vordergrund */
+/* Header-Stile */
+.main-header {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     width: 100%;
     display: flex;
-    flex-direction: column; /* Elemente vertikal anordnen */
-    align-items: flex-start; /* Elemente linksbündig */
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-/* Erste Zeile im Header: Titel links, Buttons rechts */
-.header-primary-row {
+/* Erste Zeile: Titel und Buttons */
+.header-top-row {
     display: flex;
-    justify-content: space-between; /* Elemente links/rechts ausrichten */
-    align-items: center; /* Vertikal zentrieren */
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
-/* Titel des Headers */
-.site-title {
-    font-size: 1.5em; /* Größere Schriftgröße */
-    margin: 0; /* Kein zusätzlicher Rand */
+.header-title {
+    font-size: 1.5em;
+    margin: 0;
 }
 
-/* Kontaktbuttons rechts im Header */
-.contact-buttons {
-    display: flex; /* Buttons nebeneinander */
-    gap: 10px; /* Abstand zwischen den Buttons */
+/* Buttons rechts */
+.header-contact-buttons {
+    display: flex;
+    gap: 10px;
 }
 
-/* Styling für Kontaktbutton-Icons (Call und WhatsApp) */
-.contact-button-icon {
-    width: 30px; /* Icon-Breite */
-    height: 30px; /* Icon-Höhe */
-    cursor: pointer; /* Zeigt Klickbarkeit */
-    transition: transform 0.3s; /* Glatte Skalierung bei Hover */
+.contact-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
 }
 
-/* Hover-Effekt für Icons */
-.contact-button-icon:hover {
-    transform: scale(1.1); /* Vergrößerung bei Hover */
+.contact-icon:hover {
+    transform: scale(1.1);
 }
 
-/* --- NAVIGATION --- */
-
-/* Hauptnavigation der Seite */
-.site-navigation {
-    width: 100%; /* Volle Breite */
-    margin-top: 10px; /* Abstand zur ersten Header-Zeile */
-    text-align: center; /* Navigation zentrieren */
+/* Navigation (zweite Zeile) */
+.main-navigation {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
 }
 
-/* Navigationselemente als horizontale Liste */
-.navigation-list {
-    display: flex; /* Links nebeneinander */
-    list-style: none; /* Keine Aufzählungszeichen */
+.nav-list {
+    display: flex;
+    list-style: none;
     padding: 0;
     margin: 0;
-    gap: 20px; /* Abstand zwischen den Links */
-    justify-content: center; /* Zentriere die Links */
+    gap: 20px;
+    justify-content: center;
 }
 
-/* Einzelne Navigationslinks */
-.navigation-item a {
-    color: white; /* Helle Schriftfarbe */
-    text-decoration: none; /* Kein Unterstrich */
+.nav-item a {
+    color: white;
+    text-decoration: none;
     font-size: 1em;
 }
 
-/* Hover-Effekt für Navigationslinks */
-.navigation-item a:hover {
-    text-decoration: underline; /* Unterstreichen bei Hover */
+.nav-item a:hover {
+    text-decoration: underline;
 }
 
-/* --- RESPONSIVE DESIGN (MOBIL) --- */
-
-/* Anpassungen für Geräte mit einer Breite unter 768px */
+/* Anpassungen für Mobilgeräte */
 @media (max-width: 768px) {
-    /* Header bleibt gestapelt */
-    .site-header {
-        flex-direction: column; /* Elemente vertikal anordnen */
-        align-items: flex-start; /* Links ausrichten */
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    /* Erste Header-Zeile: Titel links, Buttons rechts */
-    .header-primary-row {
-        flex-direction: row; /* Elemente horizontal ausrichten */
+    .header-top-row {
+        flex-direction: row;
         width: 100%;
-        justify-content: space-between; /* Links/rechts verteilen */
+        justify-content: space-between;
     }
 
-    /* Navigation bleibt zentriert */
-    .site-navigation {
-        margin-top: 15px; /* Größerer Abstand zur ersten Zeile */
+    .main-navigation {
+        margin-top: 15px;
     }
 
-    /* Kleinere Icons für Mobilgeräte */
-    .contact-button-icon {
-        width: 25px; /* Reduzierte Breite */
-        height: 25px; /* Reduzierte Höhe */
+    .contact-icon {
+        width: 25px;
+        height: 25px;
     }
 }
 
-/* --- KUNDENBEWERTUNGEN --- */
 
-/* Kopfzeile für Kundenbewertungen */
-.customer-review-header {
-    width: 100%; /* Volle Breite */
-    background-color: gray; /* Grauer Hintergrund */
-    color: white; /* Helle Schriftfarbe */
-    padding: 20px; /* Innenabstand */
-    text-align: center; /* Zentrierter Text */
-    font-size: 1.5em; /* Größere Schriftgröße */
-    font-weight: bold; /* Fettschrift */
-    margin-top: 20px; /* Abstand zum vorherigen Element */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatteneffekt */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* Abstand zwischen internen Elementen */
-    flex-direction: column; /* Elemente vertikal anordnen */
-}
-
-/* Wrapper für Kundenbewertungen */
-.customer-review-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative; /* Für absolute Positionierung der Pfeile */
+/* Kundenmeinung Header */
+.review-header1 {
     width: 100%;
-    max-width: 900px; /* Maximale Breite */
-    margin: 20px auto; /* Zentriere und füge vertikalen Abstand hinzu */
+    background-color: gray;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
 }
 
-/* Bereich, in dem Bewertungen angezeigt werden */
-.review-container {
-    width: 80%; /* Breite relativ zur Seite */
-    max-width: 800px; /* Maximale Breite */
-    overflow: hidden; /* Verstecke überflüssige Inhalte */
+/* Kundenbewertungen */
+.review-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
 }
 
-/* Liste der Bewertungen */
-.review-list {
-    display: grid; /* Rasterlayout */
-    grid-template-columns: 1fr; /* Eine Spalte */
-    gap: 20px; /* Abstand zwischen Bewertungen */
-    padding: 10px 0; /* Vertikaler Innenabstand */
+.container {
+    width: 80%;
+    max-width: 800px;
+    overflow: hidden;
 }
 
-/* Einzelne Bewertung */
-.review-item {
-    background-color: #ffffff; /* Weißer Hintergrund */
-    border-radius: 8px; /* Abgerundete Ecken */
-    padding: 20px; /* Innenabstand */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Schatten */
-    text-align: left; /* Linksbündiger Text */
+.reviews {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 10px 0;
 }
 
-/* Sternebewertung */
-.review-stars {
-    color: #ffa500; /* Orangefarbene Sterne */
-    font-size: 1.2em; /* Größere Schriftgröße */
+.review {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
 
-/* --- SLIDER-STILE --- */
-
-/* Slider-Pfeile */
-.slider-arrow {
-    position: absolute; /* Innerhalb des Sliders positioniert */
-    top: 50%; /* Vertikale Zentrierung */
-    transform: translateY(-50%); /* Exakte Zentrierung */
-    z-index: 2; /* Über anderen Elementen */
-    background-color: #333; /* Dunkler Hintergrund */
-    color: white; /* Weiße Pfeile */
-    border: none; /* Kein Rahmen */
-    padding: 10px; /* Klickbereich vergrößern */
-    cursor: pointer; /* Klicksymbol */
-    font-size: 1.2em; /* Größere Pfeile */
-    border-radius: 50%; /* Runde Form */
+.review p {
+    margin: 10px 0;
 }
 
-.slider-arrow.left {
-    left: 10px; /* Position links */
+.stars {
+    color: #ffa500;
+    font-size: 1.2em;
 }
 
-.slider-arrow.right {
-    right: 10px; /* Position rechts */
+/* Pfeiltasten */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 50%;
 }
 
-/* Punkteanzeige unter dem Slider */
-.slider-dots {
-    text-align: center; /* Zentriert */
-    margin-top: 10px; /* Abstand zum Slider */
+.arrow.left {
+    left: 10px;
 }
 
-/* Einzelner Punkt im Slider */
-.slider-dot {
-    height: 10px; /* Punktgröße */
-    width: 10px; /* Punktgröße */
-    margin: 0 5px; /* Horizontaler Abstand */
-    background-color: #bbb; /* Graue Punkte */
-    border-radius: 50%; /* Runde Form */
+.arrow.right {
+    right: 10px;
+}
+
+/* Punktanzeige für Seiten */
+.dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
     display: inline-block;
     cursor: pointer;
 }
 
-/* Aktiver Punkt im Slider */
-.slider-dot.active {
-    background-color: #333; /* Dunkler Punkt */
+.dot.active {
+    background-color: #333;
 }
 
-/* --- FUSSZEILE --- */
+/* Hauptbereich */
+.content {
+    flex: 1;
+    padding: 15px 5%;
+}
 
-/* Footer der Seite */
-.site-footer {
-    background-color: #333; /* Dunkler Hintergrund */
-    color: white; /* Helle Schriftfarbe */
-    text-align: center; /* Zentrierter Text */
-    padding: 10px; /* Innenabstand */
-    margin-top: 20px; /* Abstand nach oben */
+/* Zentrierte Bilder */
+.centered-image {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.centered-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Öffnungszeiten */
+.hours {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+.hours h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.hours p {
+    font-size: 1.1em;
+}
+
+/* Seitenstile */
+.about, .services, .impressum {
+    margin: 20px 0;
+}
+
+.services h2, .about h2, .impressum h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #1a1a4b;
+}
+
+/* Dienstleistungskarten */
+.services-section {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+@media (min-width: 768px) {
+    .services-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.service-card {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+    z-index: 1;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card .icon {
+    background-color: black;
+    color: white;
+    font-size: 1.5em;
+    padding: 15px;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.service-card .description {
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-card .description h3 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+    color: #1a1a4b;
+    text-align: center;
+}
+
+.service-card .description p {
+    margin: 0;
+    font-size: 1em;
+    color: #1a1a4b;
+    line-height: 1.6;
+}
+
+/* Impressum-Boxen */
+.box {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.box .description h3 {
+    margin: 0 0 10px;
+    font-size: 1.3em;
+    color: #1a1a4b;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Verstecke andere Seiten standardmäßig */
+.page {
+    display: none;
+}
+
+/* Sichtbare Seite */
+.visible {
+    display: block;
 }
