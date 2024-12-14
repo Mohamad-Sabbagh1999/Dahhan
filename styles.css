@@ -85,6 +85,19 @@ body, html {
 
 /* Navigation und Buttons nebeneinander auf Mobilgeräten */
 @media (max-width: 768px) {
+    .header {
+        display: flex; /* Flexbox aktivieren */
+        flex-direction: row; /* Elemente horizontal ausrichten */
+        align-items: center; /* Vertikale Zentrierung */
+        justify-content: space-between; /* Titel links, Buttons rechts */
+        padding: 10px 15px; /* Weniger Polsterung */
+    }
+
+    .header h1 {
+        font-size: 1em; /* Kleinere Schriftgröße für Mobilgeräte */
+        margin: 0; /* Kein zusätzlicher Abstand */
+    }
+
     /* Navigation: Links nebeneinander */
     .nav-menu ul {
         display: flex; /* Flexbox aktivieren */
@@ -108,11 +121,15 @@ body, html {
         padding: 10px; /* Klickfläche vergrößern */
     }
 
-    /* Call- und WhatsApp-Buttons nebeneinander */
+    /* Call- und WhatsApp-Buttons */
     .call-button-container, .whatsapp-button-container {
         display: inline-block; /* Buttons nebeneinander */
-        text-align: center;
-        margin: 0px 10px; /* Leichter Abstand zwischen Buttons */
+        margin-left: 10px; /* Abstand zwischen den Buttons */
+    }
+
+    .call-button-img, .whatsapp-button-img {
+        width: 30px; /* Kleinere Icon-Größe */
+        height: 30px;
     }
 
     /* Flex-Container für Buttons */
@@ -121,17 +138,6 @@ body, html {
         gap: 20px;
     }
 
-    /* Zusätzlicher Abstand für Buttons */
-    .nav-menu ul + .call-button-container,
-    .nav-menu ul + .whatsapp-button-container {
-        margin-top: 15px; /* Abstand zwischen Navigation und Buttons */
-    }
-
-    /* Icons: Kleinere Darstellung auf Mobilgeräten */
-    .call-button-img, .whatsapp-button-img {
-        width: 30px; /* Einheitliche Größe */
-        height: 30px;
-    }
 }
 
 /* Kundenmeinung Header */
