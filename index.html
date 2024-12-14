@@ -8,31 +8,31 @@
 </head>
 <body  onload="showPage('home')">
     <!-- Header mit Navigationsmenü -->
-    <header class="header">
-        <div class="header-row">
-            <h1>Ingenieurbüro S. Dahhan</h1>
-            <div class="header-buttons">
-                <div class="call-button-container">
+    <header class="main-header">
+        <div class="header-top-row">
+            <h1 class="header-title">Ingenieurbüro S. Dahhan</h1>
+            <div class="header-contact-buttons">
+                <div class="contact-call">
                     <a href="tel:+4917649291835">
-                        <img src="call-icon.png" alt="Anruf" class="call-button-img">
+                        <img src="call-icon.png" alt="Anruf" class="contact-icon">
                     </a>
                 </div>
-                <div class="whatsapp-button-container">
+                <div class="contact-whatsapp">
                     <a href="https://wa.me/4917649291835" target="_blank">
-                        <img src="whatsapp-icon.png" alt="WhatsApp" class="whatsapp-button-img">
+                        <img src="whatsapp-icon.png" alt="WhatsApp" class="contact-icon">
                     </a>
                 </div>
             </div>
         </div>
-        <nav id="nav-menu" class="nav-menu">
-            <ul>
-                <li><a href="#" onclick="showPage('home')">Home</a></li>
-                <li><a href="#" onclick="showPage('services')">Dienstleistungen</a></li>
-                <li><a href="#" onclick="showPage('impressum')">Impressum</a></li>
+        <nav class="main-navigation">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#" onclick="showPage('home')">Home</a></li>
+                <li class="nav-item"><a href="#" onclick="showPage('services')">Dienstleistungen</a></li>
+                <li class="nav-item"><a href="#" onclick="showPage('impressum')">Impressum</a></li>
             </ul>
         </nav>
     </header>
-     
+         
     <!-- Home-Seite -->
     <div id="home" class="page visible content">
         <section>

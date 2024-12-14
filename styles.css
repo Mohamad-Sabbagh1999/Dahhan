@@ -15,7 +15,7 @@ body, html {
 }
 
 /* Header-Stile */
-.header {
+.main-header {
     background-color: #333;
     color: white;
     padding: 10px 15px;
@@ -23,79 +23,86 @@ body, html {
     top: 0;
     z-index: 1000;
     width: 100%;
-}
-
-/* Header erste Zeile (Titel und Buttons) */
-.header-row {
     display: flex;
-    justify-content: space-between; /* Titel links, Buttons rechts */
-    align-items: center; /* Vertikale Zentrierung */
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-/* Titel */
-.header h1 {
+/* Erste Zeile: Titel und Buttons */
+.header-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header-title {
     font-size: 1.5em;
     margin: 0;
 }
 
 /* Buttons rechts */
-.header-buttons {
+.header-contact-buttons {
     display: flex;
-    gap: 10px; /* Abstand zwischen Buttons */
+    gap: 10px;
 }
 
-.call-button-img, .whatsapp-button-img {
+.contact-icon {
     width: 30px;
     height: 30px;
     cursor: pointer;
     transition: transform 0.3s;
 }
 
-.call-button-img:hover, .whatsapp-button-img:hover {
+.contact-icon:hover {
     transform: scale(1.1);
 }
 
 /* Navigation (zweite Zeile) */
-.nav-menu {
+.main-navigation {
+    width: 100%;
     margin-top: 10px;
     text-align: center;
 }
 
-.nav-menu ul {
+.nav-list {
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: 15px; /* Abstand zwischen Links */
-    justify-content: center; /* Zentriere Links */
+    gap: 20px;
+    justify-content: center;
 }
 
-.nav-menu ul li a {
+.nav-item a {
+    color: white;
     text-decoration: none;
     font-size: 1em;
-    color: white;
 }
 
-.nav-menu ul li a:hover {
+.nav-item a:hover {
     text-decoration: underline;
 }
 
 /* Anpassungen für Mobilgeräte */
 @media (max-width: 768px) {
-    .header-row {
-        flex-wrap: nowrap; /* Alles bleibt in einer Zeile */
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .header h1 {
-        font-size: 1em; /* Kleinere Schriftgröße */
+    .header-top-row {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
     }
 
-    .nav-menu {
-        margin-top: 15px; /* Abstand zur ersten Zeile */
+    .main-navigation {
+        margin-top: 15px;
     }
 
-    .call-button-img, .whatsapp-button-img {
-        width: 25px; /* Kleinere Icons */
+    .contact-icon {
+        width: 25px;
         height: 25px;
     }
 }
