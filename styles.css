@@ -20,17 +20,17 @@ body, html {
     color: white;
     padding: 20px;
     text-align: center;
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    z-index: 10;
-    box-sizing: border-box;
-    width: 100%;
+    position: sticky; /* Fixiert den Header beim Scrollen */
+    top: 0; /* Abstand vom oberen Bildschirmrand */
+    z-index: 1000; /* Höchste Priorität über anderen Elementen */
+    width: 100%; /* Volle Breite des Bildschirms */
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Schatten für visuellen Effekt */
 }
+
 
 .header h1 {
     font-size: 1.5em;
