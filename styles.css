@@ -92,7 +92,7 @@ body, html {
         align-items: center; /* Vertikal zentrieren */
         padding: 0;
         margin: 0;
-        gap: 5px;
+        gap: 15px;
     }
 
     .nav-menu ul li {
@@ -101,23 +101,30 @@ body, html {
         text-align: center; /* Zentriere die Links */
     }
 
+    .nav-menu ul li a {
+        text-decoration: none;
+        font-size: 1em;
+        color: white; /* Navigation bleibt sichtbar */
+        padding: 10px; /* Klickfläche vergrößern */
+    }
+
     /* Call- und WhatsApp-Buttons nebeneinander */
     .call-button-container, .whatsapp-button-container {
         display: inline-block; /* Buttons nebeneinander */
         text-align: center;
-        margin: 10px 5px; /* Leichter Abstand zwischen Buttons */
+        margin: 0px 10px; /* Leichter Abstand zwischen Buttons */
     }
 
     /* Flex-Container für Buttons */
     .nav-menu {
         flex-wrap: wrap; /* Erlaubt Umbruch, falls nötig */
-        gap: 5px;
+        gap: 20px;
     }
 
     /* Zusätzlicher Abstand für Buttons */
     .nav-menu ul + .call-button-container,
     .nav-menu ul + .whatsapp-button-container {
-        margin-top: 10px; /* Abstand zwischen Navigation und Buttons */
+        margin-top: 15px; /* Abstand zwischen Navigation und Buttons */
     }
 
     /* Icons: Kleinere Darstellung auf Mobilgeräten */
