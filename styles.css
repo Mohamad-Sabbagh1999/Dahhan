@@ -14,8 +14,8 @@ body, html {
     flex-direction: column;
 }
 
-/* Header-Stile */
-.main-header {
+/* Allgemeiner Header-Stil */
+.header {
     background-color: #333;
     color: white;
     padding: 10px 15px;
@@ -24,85 +24,89 @@ body, html {
     z-index: 1000;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; /* Für mobile Geräte wird flex-stack benötigt */
+    align-items: flex-start; /* Standard: Links ausrichten */
 }
 
 /* Erste Zeile: Titel und Buttons */
-.header-top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+.header-row {
+    display: flex; /* Flexbox aktivieren */
+    justify-content: space-between; /* Titel links, Buttons rechts */
+    align-items: center; /* Vertikale Zentrierung */
+    width: 100%; /* Volle Breite nutzen */
 }
 
-.header-title {
+/* Titel */
+.header h1 {
     font-size: 1.5em;
     margin: 0;
 }
 
 /* Buttons rechts */
-.header-contact-buttons {
-    display: flex;
-    gap: 10px;
+.header-buttons {
+    display: flex; /* Buttons nebeneinander */
+    gap: 10px; /* Abstand zwischen Buttons */
 }
 
-.contact-icon {
-    width: 30px;
+.call-button-img, .whatsapp-button-img {
+    width: 30px; /* Einheitliche Icon-Größe */
     height: 30px;
     cursor: pointer;
     transition: transform 0.3s;
 }
 
-.contact-icon:hover {
-    transform: scale(1.1);
+.call-button-img:hover, .whatsapp-button-img:hover {
+    transform: scale(1.1); /* Skalierung bei Hover */
 }
 
-/* Navigation (zweite Zeile) */
-.main-navigation {
-    width: 100%;
-    margin-top: 10px;
+/* Zweite Zeile: Navigation */
+.nav-menu {
+    width: 100%; /* Volle Breite */
+    margin-top: 10px; /* Abstand zur ersten Zeile */
     text-align: center;
 }
 
-.nav-list {
-    display: flex;
+.nav-menu ul {
+    display: flex; /* Flexbox für Navigation */
     list-style: none;
     padding: 0;
     margin: 0;
-    gap: 20px;
-    justify-content: center;
+    gap: 20px; /* Abstand zwischen Links */
+    justify-content: center; /* Zentriere die Links */
 }
 
-.nav-item a {
+.nav-menu ul li a {
     color: white;
     text-decoration: none;
     font-size: 1em;
 }
 
-.nav-item a:hover {
+.nav-menu ul li a:hover {
     text-decoration: underline;
 }
 
 /* Anpassungen für Mobilgeräte */
 @media (max-width: 768px) {
-    .main-header {
-        flex-direction: column;
-        align-items: flex-start;
+    /* Header bleibt gestapelt */
+    .header {
+        flex-direction: column; /* Titel, Buttons, Navigation untereinander */
+        align-items: flex-start; /* Links ausrichten */
     }
 
-    .header-top-row {
-        flex-direction: row;
+    /* Erste Zeile: Titel und Buttons */
+    .header-row {
+        flex-direction: row; /* Titel links, Buttons rechts */
         width: 100%;
-        justify-content: space-between;
+        justify-content: space-between; /* Abstand zwischen Titel und Buttons */
     }
 
-    .main-navigation {
-        margin-top: 15px;
+    /* Zweite Zeile: Navigation */
+    .nav-menu {
+        margin-top: 15px; /* Abstand zur ersten Zeile */
     }
 
-    .contact-icon {
-        width: 25px;
+    .call-button-img, .whatsapp-button-img {
+        width: 25px; /* Kleinere Icons für Mobilgeräte */
         height: 25px;
     }
 }
