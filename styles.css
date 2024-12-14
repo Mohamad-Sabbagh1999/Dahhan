@@ -1,369 +1,368 @@
-/* Allgemeine Stile */
+/* Allgemeine Stile für alle Elemente */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Padding und Border werden in die Gesamtbreite und Höhe einberechnet */
 }
 
+/* Grundlegende Stile für die Seite */
 body, html {
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
-    color: #333;
-    background-color: #f9f9f9;
-    display: flex;
-    flex-direction: column;
+    font-family: Arial, sans-serif; /* Schriftart */
+    min-height: 100vh; /* Mindestens die volle Bildschirmhöhe */
+    color: #333; /* Standard-Textfarbe */
+    background-color: #f9f9f9; /* Hintergrundfarbe */
+    display: flex; /* Flexbox für Layout */
+    flex-direction: column; /* Elemente vertikal anordnen */
 }
 
-/* Allgemeiner Header-Stil */
-.main-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    position: sticky;
+/* Header-Bereich */
+.header {
+    background-color: #333; /* Dunkler Hintergrund */
+    color: white; /* Weißer Text */
+    padding: 10px 20px; /* Innenabstand oben/unten und links/rechts */
+    position: sticky; /* Bleibt am oberen Rand beim Scrollen */
     top: 0;
-    z-index: 10;
-    width: 100%;
+    z-index: 10; /* Stapelreihenfolge für Sichtbarkeit */
+    width: 100%; /* Volle Breite */
     box-sizing: border-box;
 }
 
-/* Header-Top-Row (Titel und Buttons) */
-.header-top-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Oberer Bereich des Headers */
+.header-top {
+    display: flex; /* Elemente nebeneinander anordnen */
+    justify-content: space-between; /* Abstand zwischen den Elementen */
+    align-items: center; /* Vertikale Ausrichtung der Elemente */
 }
 
 .header-title {
-    font-size: 1.5em;
-    margin: 0;
+    font-size: 1.5em; /* Schriftgröße */
+    margin: 0; /* Kein Abstand */
 }
 
-.header-contact-buttons {
-    display: flex;
-    gap: 10px;
+.contact-buttons {
+    display: flex; /* Buttons nebeneinander anordnen */
+    gap: 10px; /* Abstand zwischen den Buttons */
 }
 
 .contact-icon {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    transition: transform 0.3s;
+    width: 40px; /* Breite des Icons */
+    height: 40px; /* Höhe des Icons */
+    cursor: pointer; /* Mauszeiger wechselt bei Hover */
+    transition: transform 0.3s; /* Animation bei Hover */
 }
 
 .contact-icon:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Vergrößert das Icon bei Hover */
 }
 
 /* Navigationsleiste */
-.main-navigation {
-    width: 100%;
-    margin-top: 10px;
+.navigation {
+    width: 100%; /* Volle Breite */
+    margin-top: 10px; /* Abstand nach oben */
 }
 
 .nav-list {
-    display: flex;
-    justify-content: center;
-    list-style: none;
+    display: flex; /* Elemente nebeneinander */
+    justify-content: center; /* Zentrierung der Elemente */
+    list-style: none; /* Entfernt Aufzählungszeichen */
     margin: 0;
     padding: 0;
-    gap: 20px;
+    gap: 20px; /* Abstand zwischen den Navigationspunkten */
 }
 
 .nav-item a {
-    color: white;
-    text-decoration: none;
-    font-size: 1em;
+    color: white; /* Weißer Text */
+    text-decoration: none; /* Entfernt Unterstreichung */
+    font-size: 1em; /* Schriftgröße */
 }
 
 .nav-item a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Unterstreicht den Link bei Hover */
 }
 
-/* Mobilgeräte-Stile */
+/* Stile für Mobilgeräte */
 @media (max-width: 768px) {
-    .header-top-row {
-        flex-wrap: nowrap;
+    .header-top {
+        flex-wrap: nowrap; /* Zeilenumbruch vermeiden */
     }
 
     .header-title {
-        font-size: 1.2em;
+        font-size: 1.2em; /* Kleinere Schriftgröße */
     }
 
-    .header-contact-buttons {
-        flex-shrink: 0;
+    .contact-buttons {
+        flex-shrink: 0; /* Buttons bleiben gleich groß */
     }
 
-    /* Navigation unter der Header-Top-Row */
-    .main-navigation {
-        margin-top: 10px;
+    .navigation {
+        margin-top: 10px; /* Zusätzlicher Abstand oben */
     }
 
     .nav-list {
-        flex-direction: row;
-        justify-content: center;
+        flex-direction: row; /* Navigation bleibt horizontal */
+        justify-content: center; /* Zentriert die Navigation */
     }
 
     .nav-item {
-        flex: 1;
-        text-align: center;
+        flex: 1; /* Jeder Navigationspunkt nimmt gleich viel Platz ein */
+        text-align: center; /* Text zentrieren */
     }
 
     .nav-item a {
-        font-size: 1em;
+        font-size: 1em; /* Einheitliche Schriftgröße */
         color: white;
         text-decoration: none;
-        padding: 10px;
+        padding: 10px; /* Zusätzlicher Innenabstand */
     }
 }
 
-
-/* Kundenmeinung Header */
-.review-header1 {
+/* Header für Kundenmeinungen */
+.review-header {
     width: 100%;
-    background-color: gray;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    flex-direction: column;
+    background-color: gray; /* Hintergrundfarbe des Headers */
+    color: white; /* Schriftfarbe */
+    padding: 20px; /* Innenabstand */
+    text-align: center; /* Zentrierter Text */
+    font-size: 1.5em; /* Schriftgröße */
+    font-weight: bold; /* Fettschrift */
+    margin-top: 20px; /* Abstand nach oben */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatteneffekt */
+    display: flex; /* Flexbox-Layout */
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
+    gap: 10px; /* Abstand zwischen Elementen */
+    flex-direction: column; /* Elemente untereinander anordnen */
 }
 
-/* Kundenbewertungen */
-.review-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+/* Bereich für Kundenbewertungen */
+.review-section {
+    display: flex; /* Flexbox-Layout */
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
+    position: relative; /* Für absolute Positionierung von Kindern */
     width: 100%;
-    max-width: 900px;
-    margin: 20px auto;
+    max-width: 900px; /* Maximale Breite */
+    margin: 20px auto; /* Zentrierung und Abstand */
 }
 
-.container {
-    width: 80%;
-    max-width: 800px;
-    overflow: hidden;
+.review-container {
+    width: 80%; /* Breite relativ zur Elternkomponente */
+    max-width: 800px; /* Maximale Breite */
+    overflow: hidden; /* Verhindert, dass Inhalte überlaufen */
 }
 
-.reviews {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 10px 0;
+.review-list {
+    display: grid; /* Gitterlayout */
+    grid-template-columns: 1fr; /* Eine Spalte */
+    gap: 20px; /* Abstand zwischen Bewertungen */
+    padding: 10px 0; /* Innenabstand */
 }
 
-.review {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: left;
+.review-item {
+    background-color: #ffffff; /* Hintergrundfarbe */
+    border-radius: 8px; /* Abgerundete Ecken */
+    padding: 20px; /* Innenabstand */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Schatteneffekt */
+    text-align: left; /* Linksbündiger Text */
 }
 
-.review p {
-    margin: 10px 0;
+.review-item p {
+    margin: 10px 0; /* Abstand oben und unten */
 }
 
-.stars {
-    color: #ffa500;
-    font-size: 1.2em;
+.review-stars {
+    color: #ffa500; /* Farbe der Sterne */
+    font-size: 1.2em; /* Schriftgröße der Sterne */
 }
 
-/* Pfeiltasten */
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 1.2em;
-    border-radius: 50%;
+/* Pfeiltasten für Navigation */
+.navigation-arrow {
+    position: absolute; /* Absolute Positionierung */
+    top: 50%; /* Vertikale Zentrierung */
+    transform: translateY(-50%); /* Exakte Zentrierung */
+    z-index: 2; /* Stapelreihenfolge für Sichtbarkeit */
+    background-color: #333; /* Hintergrundfarbe */
+    color: white; /* Schriftfarbe */
+    border: none; /* Kein Rahmen */
+    padding: 10px; /* Innenabstand */
+    cursor: pointer; /* Mauszeiger wird zur Hand */
+    font-size: 1.2em; /* Schriftgröße */
+    border-radius: 50%; /* Runde Form */
 }
 
-.arrow.left {
-    left: 10px;
+.navigation-arrow.left {
+    left: 10px; /* Abstand von links */
 }
 
-.arrow.right {
-    right: 10px;
+.navigation-arrow.right {
+    right: 10px; /* Abstand von rechts */
 }
 
-/* Punktanzeige für Seiten */
-.dots {
-    text-align: center;
-    margin-top: 10px;
+/* Punkteanzeige für die Seiten */
+.pagination-dots {
+    text-align: center; /* Zentrierung */
+    margin-top: 10px; /* Abstand nach oben */
 }
 
-.dot {
-    height: 10px;
-    width: 10px;
-    margin: 0 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
+.pagination-dot {
+    height: 10px; /* Höhe der Punkte */
+    width: 10px; /* Breite der Punkte */
+    margin: 0 5px; /* Abstand zwischen Punkten */
+    background-color: #bbb; /* Standardfarbe */
+    border-radius: 50%; /* Runde Form */
+    display: inline-block; /* Nebeneinander darstellen */
+    cursor: pointer; /* Mauszeiger wird zur Hand */
 }
 
-.dot.active {
-    background-color: #333;
+.pagination-dot.active {
+    background-color: #333; /* Farbe des aktiven Punktes */
 }
 
-/* Hauptbereich */
-.content {
-    flex: 1;
-    padding: 15px 5%;
+/* Hauptinhalt der Seite */
+.main-content {
+    flex: 1; /* Flexibler Platz */
+    padding: 15px 5%; /* Innenabstand */
 }
 
-/* Zentrierte Bilder */
-.centered-image {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
+/* Bilder zentrieren */
+.image-center {
+    display: flex; /* Flexbox-Layout */
+    justify-content: center; /* Horizontale Zentrierung */
+    margin: 20px 0; /* Abstand oben und unten */
 }
 
-.centered-image img {
-    max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.image-center img {
+    max-width: 100%; /* Bild passt sich an die Elternbreite an */
+    border-radius: 10px; /* Abgerundete Ecken */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatteneffekt */
 }
 
-/* Öffnungszeiten */
-.hours {
-    background-color: #f4f4f4;
-    padding: 20px;
-    text-align: center;
+/* Bereich für Öffnungszeiten */
+.opening-hours {
+    background-color: #f4f4f4; /* Hintergrundfarbe */
+    padding: 20px; /* Innenabstand */
+    text-align: center; /* Zentrierter Text */
 }
 
-.hours h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+.opening-hours h3 {
+    font-size: 1.5em; /* Schriftgröße */
+    margin-bottom: 10px; /* Abstand nach unten */
 }
 
-.hours p {
-    font-size: 1.1em;
+.opening-hours p {
+    font-size: 1.1em; /* Schriftgröße */
 }
 
-/* Seitenstile */
-.about, .services, .impressum {
-    margin: 20px 0;
+/* Stile für Seitenbereiche */
+.section-about, .section-services, .section-impressum {
+    margin: 20px 0; /* Abstand oben und unten */
 }
 
-.services h2, .about h2, .impressum h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #1a1a4b;
+.section-services h2, .section-about h2, .section-impressum h2 {
+    font-size: 2em; /* Schriftgröße der Überschriften */
+    margin-bottom: 20px; /* Abstand nach unten */
+    text-align: center; /* Zentrierte Überschrift */
+    color: #1a1a4b; /* Schriftfarbe */
 }
 
-/* Dienstleistungskarten */
-.services-section {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 10px;
-    justify-content: space-between;
-    margin-top: 15px;
+/* Karten für Dienstleistungen */
+.service-cards {
+    display: grid; /* Gitterlayout */
+    grid-template-columns: repeat(1, 1fr); /* Eine Spalte standardmäßig */
+    gap: 10px; /* Abstand zwischen Karten */
+    justify-content: space-between; /* Gleiche Abstände zwischen den Karten */
+    margin-top: 15px; /* Abstand nach oben */
 }
 
 @media (min-width: 768px) {
-    .services-section {
-        grid-template-columns: repeat(2, 1fr);
+    .service-cards {
+        grid-template-columns: repeat(2, 1fr); /* Zwei Spalten auf größeren Bildschirmen */
     }
 }
 
 .service-card {
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s;
-    z-index: 1;
+    display: flex; /* Flexbox-Layout */
+    align-items: center; /* Vertikale Zentrierung */
+    background-color: #ffffff; /* Weißer Hintergrund */
+    border-radius: 8px; /* Abgerundete Ecken */
+    overflow: hidden; /* Verhindert, dass Inhalte überlaufen */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Schatteneffekt */
+    transition: transform 0.3s; /* Animation bei Hover */
+    z-index: 1; /* Stapelreihenfolge */
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* Karte hebt sich bei Hover leicht an */
 }
 
-.service-card .icon {
-    background-color: black;
-    color: white;
-    font-size: 1.5em;
-    padding: 15px;
-    text-align: center;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    margin-right: 15px;
+.service-card .service-icon {
+    background-color: black; /* Schwarzer Hintergrund für das Icon */
+    color: white; /* Weißer Text */
+    font-size: 1.5em; /* Schriftgröße */
+    padding: 15px; /* Innenabstand */
+    text-align: center; /* Zentrierung des Textes */
+    width: 60px; /* Breite des Icons */
+    height: 60px; /* Höhe des Icons */
+    display: flex; /* Flexbox-Layout */
+    align-items: center; /* Vertikale Zentrierung */
+    justify-content: center; /* Horizontale Zentrierung */
+    border-radius: 8px; /* Abgerundete Ecken */
+    margin-right: 15px; /* Abstand rechts vom Icon */
 }
 
-.service-card .description {
-    padding: 10px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.service-card .service-description {
+    padding: 10px; /* Innenabstand */
+    text-align: center; /* Zentrierter Text */
+    display: flex; /* Flexbox-Layout */
+    flex-direction: column; /* Vertikale Anordnung */
+    align-items: center; /* Horizontale Zentrierung */
+    justify-content: center; /* Vertikale Zentrierung */
 }
 
-.service-card .description h3 {
-    margin: 0 0 10px;
-    font-size: 1.2em;
-    color: #1a1a4b;
-    text-align: center;
+.service-card .service-description h3 {
+    margin: 0 0 10px; /* Abstand unten */
+    font-size: 1.2em; /* Schriftgröße */
+    color: #1a1a4b; /* Dunkelblaue Schriftfarbe */
+    text-align: center; /* Zentrierung */
 }
 
-.service-card .description p {
-    margin: 0;
-    font-size: 1em;
-    color: #1a1a4b;
-    line-height: 1.6;
+.service-card .service-description p {
+    margin: 0; /* Kein Abstand */
+    font-size: 1em; /* Schriftgröße */
+    color: #1a1a4b; /* Dunkelblaue Schriftfarbe */
+    line-height: 1.6; /* Zeilenhöhe */
 }
 
-/* Impressum-Boxen */
-.box {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    padding: 20px;
-    margin-bottom: 20px;
+/* Impressum-Box */
+.impressum-box {
+    background-color: #ffffff; /* Weißer Hintergrund */
+    border-radius: 8px; /* Abgerundete Ecken */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Schatteneffekt */
+    padding: 20px; /* Innenabstand */
+    margin-bottom: 20px; /* Abstand nach unten */
 }
 
-.box .description h3 {
-    margin: 0 0 10px;
-    font-size: 1.3em;
-    color: #1a1a4b;
+.impressum-box .impressum-title {
+    margin: 0 0 10px; /* Abstand unten */
+    font-size: 1.3em; /* Schriftgröße */
+    color: #1a1a4b; /* Dunkelblaue Schriftfarbe */
 }
 
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
+/* Footer-Bereich */
+.site-footer {
+    background-color: #333; /* Dunkler Hintergrund */
+    color: white; /* Weißer Text */
+    text-align: center; /* Zentrierung des Textes */
+    padding: 10px; /* Innenabstand */
+    margin-top: 20px; /* Abstand nach oben */
 }
 
-/* Verstecke andere Seiten standardmäßig */
-.page {
-    display: none;
+/* Versteckt standardmäßig andere Seiten */
+.hidden-page {
+    display: none; /* Unsichtbar */
 }
 
 /* Sichtbare Seite */
-.visible {
-    display: block;
+.visible-page {
+    display: block; /* Sichtbar */
 }
