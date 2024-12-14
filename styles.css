@@ -83,66 +83,53 @@ body, html {
     transform: scale(1.1);
 }
 
+/* Navigation auf Mobilgeräten nebeneinander anzeigen */
 @media (max-width: 768px) {
-    /* Navigation: Vertikale Ausrichtung */
+    .header {
+        padding: 10px; /* Kompakter Header */
+        display: flex;
+        justify-content: space-between; /* Elemente gleichmäßig verteilen */
+        align-items: center; /* Vertikale Ausrichtung */
+        flex-wrap: nowrap; /* Kein Umbruch der Elemente */
+    }
+
     .nav-menu {
-        flex-direction: column; /* Menü vertikal ausrichten */
-        align-items: center; /* Zentriere die Links */
-        background-color: #333; /* Dunkler Hintergrund für Mobilgeräte */
-        width: 100%; /* Volle Breite des Bildschirms */
-        padding: 10px 0;
-        gap: 5px; /* Abstand zwischen den Links */
+        flex-grow: 1; /* Nimmt den verfügbaren Platz ein */
+        display: flex; /* Elemente horizontal ausrichten */
+        justify-content: space-evenly; /* Elemente mit gleichmäßigem Abstand platzieren */
+        align-items: center;
+        gap: 10px; /* Abstand zwischen den Elementen */
     }
 
     .nav-menu ul {
-        flex-direction: column; /* Links untereinander anordnen */
-        width: 100%;
-        padding: 0;
+        display: flex; /* Elemente horizontal anordnen */
+        flex-wrap: nowrap;
+        list-style: none;
         margin: 0;
+        padding: 0;
     }
 
     .nav-menu ul li {
-        width: 100%; /* Links nehmen die volle Breite ein */
-        text-align: center; /* Zentriere die Links */
-        margin: 5px 0; /* Abstand zwischen den Links */
+        margin: 0; /* Kein zusätzlicher Abstand */
     }
 
     .nav-menu ul li a {
-        display: block;
-        font-size: 1em; /* Größere Schrift für bessere Lesbarkeit */
-        padding: 10px 0; /* Erhöhte Klickfläche */
-        color: white;
+        font-size: 0.9em; /* Kleinere Schriftgröße für Mobilgeräte */
         text-decoration: none;
+        color: white;
+        padding: 5px 10px; /* Kompaktere Links */
     }
 
-    .nav-menu ul li a:hover {
-        background-color: #444; /* Hover-Effekt für Links */
-        color: #fff;
-    }
-
-    /* Call- und WhatsApp-Buttons: Zentrierte Ausrichtung */
     .call-button-container, .whatsapp-button-container {
+        flex-shrink: 0; /* Buttons behalten ihre Größe */
         display: flex;
-        justify-content: center; /* Zentriere die Buttons */
-        margin: 5px 0; /* Abstand über und unter den Buttons */
+        align-items: center;
+        justify-content: center;
     }
 
     .call-button-img, .whatsapp-button-img {
-        width: 25px; /* Einheitliche Größe der Buttons */
-        height: 25px;
-        margin: 0 5px; /* Abstand zwischen den Buttons */
-    }
-
-    /* Header-Ausrichtung: Zentriere den Inhalt */
-    .header {
-        flex-direction: column; /* Inhalte untereinander anordnen */
-        text-align: center;
-        padding: 5px 15px;
-    }
-
-    .header h1 {
-        font-size: 1em; /* Noch kleinere Schriftgröße */
-        margin-bottom: 10px;
+        width: 30px; /* Einheitliche Größe der Icons */
+        height: 30px;
     }
 }
 
