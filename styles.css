@@ -83,56 +83,49 @@ body, html {
     transform: scale(1.1);
 }
 
-/* Navigation auf Mobilgeräten nebeneinander anzeigen */
+/* Navigation und Buttons nebeneinander auf Mobilgeräten */
 @media (max-width: 768px) {
-    .header {
-        padding: 10px; /* Kompakter Header */
-        display: flex;
-        justify-content: space-between; /* Elemente gleichmäßig verteilen */
-        align-items: center; /* Vertikale Ausrichtung */
-        flex-wrap: nowrap; /* Kein Umbruch der Elemente */
-    }
-
-    .nav-menu {
-        flex-grow: 1; /* Nimmt den verfügbaren Platz ein */
-        display: flex; /* Elemente horizontal ausrichten */
-        justify-content: space-evenly; /* Elemente mit gleichmäßigem Abstand platzieren */
-        align-items: center;
-        gap: 10px; /* Abstand zwischen den Elementen */
-    }
-
+    /* Navigation: Links nebeneinander */
     .nav-menu ul {
-        display: flex; /* Elemente horizontal anordnen */
-        flex-wrap: nowrap;
-        list-style: none;
-        margin: 0;
+        display: flex; /* Flexbox aktivieren */
+        justify-content: space-evenly; /* Gleichmäßiger Abstand */
+        align-items: center; /* Vertikal zentrieren */
         padding: 0;
+        margin: 0;
+        gap: 5px;
     }
 
     .nav-menu ul li {
         margin: 0; /* Kein zusätzlicher Abstand */
+        flex: 1; /* Gleichmäßige Verteilung der Links */
+        text-align: center; /* Zentriere die Links */
     }
 
-    .nav-menu ul li a {
-        font-size: 0.9em; /* Kleinere Schriftgröße für Mobilgeräte */
-        text-decoration: none;
-        color: white;
-        padding: 5px 10px; /* Kompaktere Links */
-    }
-
+    /* Call- und WhatsApp-Buttons nebeneinander */
     .call-button-container, .whatsapp-button-container {
-        flex-shrink: 0; /* Buttons behalten ihre Größe */
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: inline-block; /* Buttons nebeneinander */
+        text-align: center;
+        margin: 10px 5px; /* Leichter Abstand zwischen Buttons */
     }
 
+    /* Flex-Container für Buttons */
+    .nav-menu {
+        flex-wrap: wrap; /* Erlaubt Umbruch, falls nötig */
+        gap: 5px;
+    }
+
+    /* Zusätzlicher Abstand für Buttons */
+    .nav-menu ul + .call-button-container,
+    .nav-menu ul + .whatsapp-button-container {
+        margin-top: 10px; /* Abstand zwischen Navigation und Buttons */
+    }
+
+    /* Icons: Kleinere Darstellung auf Mobilgeräten */
     .call-button-img, .whatsapp-button-img {
-        width: 30px; /* Einheitliche Größe der Icons */
+        width: 30px; /* Einheitliche Größe */
         height: 30px;
     }
 }
-
 
 /* Kundenmeinung Header */
 .review-header1 {
