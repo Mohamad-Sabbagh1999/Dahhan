@@ -20,17 +20,16 @@ body, html {
     color: white;
     padding: 20px;
     text-align: center;
-    position: sticky; /* Fixiert den Header beim Scrollen */
-    top: 0; /* Abstand vom oberen Bildschirmrand */
-    z-index: 1000; /* Höchste Priorität über anderen Elementen */
-    width: 100%; /* Volle Breite des Bildschirms */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-sizing: border-box;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Schatten für visuellen Effekt */
 }
-
 
 .header h1 {
     font-size: 1.5em;
@@ -110,7 +109,7 @@ body, html {
 
     .nav-menu ul li a {
         display: block;
-        font-size: 1.2em; /* Größere Schrift für bessere Lesbarkeit */
+        font-size: 1em; /* Größere Schrift für bessere Lesbarkeit */
         padding: 10px 0; /* Erhöhte Klickfläche */
         color: white;
         text-decoration: none;
@@ -125,12 +124,12 @@ body, html {
     .call-button-container, .whatsapp-button-container {
         display: flex;
         justify-content: center; /* Zentriere die Buttons */
-        margin: 10px 0; /* Abstand über und unter den Buttons */
+        margin: 5px 0; /* Abstand über und unter den Buttons */
     }
 
     .call-button-img, .whatsapp-button-img {
-        width: 40px; /* Einheitliche Größe der Buttons */
-        height: 40px;
+        width: 25px; /* Einheitliche Größe der Buttons */
+        height: 25px;
         margin: 0 5px; /* Abstand zwischen den Buttons */
     }
 
@@ -138,11 +137,12 @@ body, html {
     .header {
         flex-direction: column; /* Inhalte untereinander anordnen */
         text-align: center;
+        padding: 5px 15px;
     }
 
     .header h1 {
-        margin-bottom: 15px;
-        font-size: 1.5em; /* Größere Schriftgröße für Mobilgeräte */
+        font-size: 1em; /* Noch kleinere Schriftgröße */
+        margin-bottom: 10px;
     }
 }
 
